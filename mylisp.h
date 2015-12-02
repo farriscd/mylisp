@@ -66,12 +66,14 @@ lval* lval_read_num(mpc_ast_t* t);
 lval* lval_eval(lenv* e, lval* v);
 lval* lval_eval_sexpr(lenv* e, lval* v);
 
-/* Builtin Operations */
+/* Built-in Operations */
 lval* builtin(lenv* e, lval* v, char* func);
 
-lval* builtin_op(lenv* e, lval* a, char* op);
-lval* builtin_add(lenv* e, lval* a);
-lval* builtin_sub(lenv* e, lval* a);
+lval* builtin_def(lenv* e, lval* v);
+
+lval* builtin_op(lenv* e, lval* v, char* op);
+lval* builtin_add(lenv* e, lval* v);
+lval* builtin_sub(lenv* e, lval* v);
 lval* builtin_mul(lenv* e, lval* v);
 lval* builtin_div(lenv* e, lval* v);
 lval* builtin_min(lenv* e, lval* v);
@@ -79,11 +81,11 @@ lval* builtin_max(lenv* e, lval* v);
 lval* builtin_mod(lenv* e, lval* v);
 lval* builtin_exp(lenv* e, lval* v);
 
+lval* builtin_list(lenv* e, lval* v);
 lval* builtin_len(lenv* e, lval* v);
 lval* builtin_head(lenv* e, lval* v);
 lval* builtin_init(lenv* e, lval* v);
 lval* builtin_tail(lenv* e, lval* v);
-lval* builtin_list(lenv* e, lval* v);
 lval* builtin_eval(lenv* e, lval* v);
 lval* builtin_join(lenv* e, lval* v);
 
