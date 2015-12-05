@@ -9,6 +9,9 @@ typedef lval* (*lbuiltin) (lenv*, lval*);
 /* LISP Value ENUM Types */
 enum { LVAL_NUM, LVAL_ERR, LVAL_SYM, LVAL_FUN, LVAL_SEXPR, LVAL_QEXPR };
 
+/* ENUM Error Types */
+enum { LERR_DIV_ZERO, LERR_BAD_OP, LERR_BAD_NUM };
+
 /* LISP Value Type */
 
 struct lval {
@@ -24,7 +27,7 @@ struct lval {
 /* LISP Value Functions */
 
 lval* lval_num(long n);
-lval* lval_err(char* e, ...);
+lval* lval_err(char* e);
 lval* lval_sym(char* s);
 lval* lval_fun(lbuiltin f);
 lval* lval_sexpr(void);
@@ -32,7 +35,6 @@ lval* lval_qexpr(void);
 
 lval* lval_copy(lval* v);
 void lval_del(lval* v);
-char* ltype_name(int t);
 
 lval* lval_add(lval* v, lval* k);
 lval* lval_pop(lval* v, int i);
